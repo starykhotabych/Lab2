@@ -1,13 +1,63 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
+// лаба 5_mod.cpp: определяет точку входа для консольного приложения.
+//
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
+#include "stdafx.h"
+#include <string>
+#include <iostream>
+#include <string>
+#include <conio.h>
+using namespace std;
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
+int _tmain(int argc, _TCHAR* argv[])
+{
+  //string alph="abcdefghijklmnopqrstuvwxyz";
+	string alph="abcdefg";
+		string instr;
+		string bufstr;
+		string res_str;
+		int cntr=0;
+		int min=2;//word
+		int max=8;// word
+		int maxwrd=50; // all string
+
+		//for(int i = 0 ; i < maxwrd; i++)
+		int i= 0;
+		while (i<=maxwrd)
+		{
+			cout<<"input the word "<<endl;
+			cin>>bufstr;
+			
+			if ((bufstr.length()>max) || (bufstr.length()<2))
+			{
+				cout << "word must be 2--8 characters"<<endl;
+				cout << "please reinput the word"<<endl;
+				bufstr.clear();
+				cin>>bufstr;
+			}
+
+			if (bufstr=="end") {break;}
+			instr=instr+' '+bufstr;
+			i++;
+
+			/*for(int j=0; j=bufstr.length() ; j++)
+			{
+				if (bufstr[j]==alph[j]) 
+			}*/
+
+			// this part of code may be in another place 
+			
+			bool res=0;
+			res = bufstr.find(alph);
+			if (res == 1) {cntr++; res_str=bufstr;}
+
+		} 
+		cout << instr << endl;
+		cout << "the words which begin on "<<alph<< " is " << cntr<<endl;
+
+
+	//return 0;  
+	_getch();
+
+}
+
+
